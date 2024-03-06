@@ -1,0 +1,18 @@
+<%= form_with model: @post do |form| %>
+  <% if @post.errors.any?%>
+    <div id = "error_explanation">
+      <h3><%= pluralize(@post.errors.count, "error")%> occurred:</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |msg|%>
+        <li><%= msg%> </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div><%= form.label :title, "Title: " %></div>
+  <div><%= form.text_field :title %></div>
+  <div><%= form.label :body, "Body: " %></div>
+  <div><%= form.text_area :body, size: "80x20" %></div>
+  <div><%= form.button %></div>
+<% end %>

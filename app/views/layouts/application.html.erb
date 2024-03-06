@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MembersOnly</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <p><%= link_to "Profile ", edit_user_registration_path %>
+      <%= button_to "Log out ", destroy_user_session_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Sign in", new_user_session_path %></p>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

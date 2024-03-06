@@ -1,0 +1,13 @@
+<h1> Posts </h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <div><%= link_to post.title, post %></div>
+
+      <% if user_signed_in? %>        
+        <div>Author: <%= post.user.email %></div>
+      <% end %>
+    </li>
+    <hr>
+  <% end %>
+</ul>
